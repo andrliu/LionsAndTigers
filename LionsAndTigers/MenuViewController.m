@@ -14,10 +14,17 @@
 
 @implementation MenuViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
 }
 
+- (IBAction)lionsButtonTapped:(UIButton *)sender
+{
+}
+
+- (IBAction)tigersButtonTapped:(UIButton *)sender
+{
+}
 
 @end

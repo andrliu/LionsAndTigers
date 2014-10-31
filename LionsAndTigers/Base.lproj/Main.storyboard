@@ -5,10 +5,10 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Photos View Controller-->
+        <!--Root View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="PhotosViewController" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="RootViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -17,16 +17,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vMA-68-IRr">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <connections>
-                                    <segue destination="Ycx-7Q-Ss1" kind="embed" id="bOn-ZD-XNL"/>
-                                </connections>
-                            </containerView>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GSE-9v-8yA">
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GSE-9v-8yA" userLabel="Menu Container View">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <connections>
                                     <segue destination="gtT-m2-EnT" kind="embed" id="TlA-ES-a5e"/>
+                                </connections>
+                            </containerView>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vMA-68-IRr" userLabel="Photo Container View">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <connections>
+                                    <segue destination="Ycx-7Q-Ss1" kind="embed" id="bOn-ZD-XNL"/>
                                 </connections>
                             </containerView>
                         </subviews>
@@ -42,10 +42,14 @@
                             <constraint firstItem="GSE-9v-8yA" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="uN8-6d-pHy"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="leftConstraintsOnPhotoView" destination="Ywa-16-7Gm" id="uFh-fg-OYo"/>
+                        <outlet property="rightConstraintsOnPhotoView" destination="TRH-Oa-Vyx" id="Jl3-hG-A0g"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="162.66666666666666" y="333.22666666666669"/>
+            <point key="canvasLocation" x="162" y="333"/>
         </scene>
         <!--Photos View Controller-->
         <scene sceneID="ayt-Pg-M9R">
@@ -58,11 +62,15 @@
                     <view key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="L40-ul-4Af">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="2vz-4V-ARE">
-                        <barButtonItem key="leftBarButtonItem" title="Reveal" id="8n8-Jb-O3C"/>
+                        <barButtonItem key="leftBarButtonItem" title="Menu" id="8n8-Jb-O3C">
+                            <connections>
+                                <action selector="MenuButtonOnPressed:" destination="3MP-L9-OUG" id="LOV-Yc-w6d"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="br7-9s-pb5" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -86,15 +94,21 @@
                                 <state key="normal" title="Lions">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="lionsButtonTapped:" destination="gtT-m2-EnT" eventType="touchUpInside" id="86O-9t-3oZ"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cCt-JD-41M">
                                 <rect key="frame" x="137" y="368" width="42" height="30"/>
                                 <state key="normal" title="Tigers">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="tigersButtonTapped:" destination="gtT-m2-EnT" eventType="touchUpInside" id="DUJ-dI-NEc"/>
+                                </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <toolbarItems/>
                 </viewController>

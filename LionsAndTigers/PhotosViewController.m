@@ -12,19 +12,17 @@
 
 @end
 
-- (void)topRevealButtonTapped
-{
-
-
-
-
-}
-
 @implementation PhotosViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
 }
+
+- (IBAction)MenuButtonOnPressed:(UIBarButtonItem *)sender
+{
+    [self.delegate topRevealButtonTapped];
+}
+
 
 @end

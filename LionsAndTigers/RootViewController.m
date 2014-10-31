@@ -7,17 +7,34 @@
 //
 
 #import "RootViewController.h"
+#import "PhotosViewController.h"
 
-@interface RootViewController ()
+@interface RootViewController () <TopDelegate>
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *rightConstraintsOnPhotoView;
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *leftConstraintsOnPhotoView;
+
 
 @end
 
 @implementation RootViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    UINavigationController *naviController = self.childViewControllers[1];
+    PhotosViewController *photoController = naviController.childViewControllers[0];
+    photoController.delegate = self;
 }
 
+
+
+- (void)topRevealButtonTapped
+{
+    self.rightConstraintsOnPhotoView.constant = 30;
+    self.leftConstraintsOnPhotoView.constant = 30;
+
+}
 
 @end
