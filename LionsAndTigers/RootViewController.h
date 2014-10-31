@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  RootViewController.h
 //  LionsAndTigers
 //
 //  Created by Andrew Liu on 10/30/14.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface RootViewController : UIViewController
 
 @end
-
