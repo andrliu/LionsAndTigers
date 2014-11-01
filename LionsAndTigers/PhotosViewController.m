@@ -9,6 +9,10 @@
 #import "PhotosViewController.h"
 
 @interface PhotosViewController ()
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
+@property NSMutableArray *currentPhotosArray;
+@property NSMutableArray *lionsArray;
+@property NSMutableArray *tigersArray;
 
 @end
 

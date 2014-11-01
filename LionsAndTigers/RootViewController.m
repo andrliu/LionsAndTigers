@@ -32,9 +32,16 @@
 
 - (void)topRevealButtonTapped
 {
-    self.rightConstraintsOnPhotoView.constant = 30;
-    self.leftConstraintsOnPhotoView.constant = 30;
-
+    if (self.rightConstraintsOnPhotoView.constant == -16)
+    {
+    self.rightConstraintsOnPhotoView.constant = -82;
+    self.leftConstraintsOnPhotoView.constant = 50;
+    }
+    else
+    {
+    self.rightConstraintsOnPhotoView.constant = -16;
+    self.leftConstraintsOnPhotoView.constant = -16;
+    }
 }
 
 @end

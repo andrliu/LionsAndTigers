@@ -62,7 +62,44 @@
                     <view key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="L40-ul-4Af">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="oAt-9h-QcU">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="e5y-x9-0zh">
+                                    <size key="itemSize" width="150" height="150"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="09a-So-86J" customClass="CustomCollectionViewCell">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xut-dB-o2B">
+                                                    <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                                                </imageView>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <outlet property="customImageView" destination="xut-dB-o2B" id="CcS-JU-4y0"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="oAt-9h-QcU" firstAttribute="top" secondItem="L40-ul-4Af" secondAttribute="topMargin" id="Qxv-3U-K9r"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="oAt-9h-QcU" secondAttribute="trailing" constant="-16" id="ebx-4B-Ttr"/>
+                            <constraint firstItem="6yK-Hu-EfL" firstAttribute="top" secondItem="oAt-9h-QcU" secondAttribute="bottom" id="lgm-CE-hpG"/>
+                            <constraint firstItem="oAt-9h-QcU" firstAttribute="leading" secondItem="L40-ul-4Af" secondAttribute="leadingMargin" constant="-16" id="nyO-Dk-u4l"/>
+                        </constraints>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="2vz-4V-ARE">
@@ -89,18 +126,30 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cP9-4U-ipB">
-                                <rect key="frame" x="137" y="178" width="37" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cP9-4U-ipB">
+                                <rect key="frame" x="16" y="60" width="40" height="30"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="GO1-7B-bjV"/>
+                                    <constraint firstAttribute="width" constant="40" id="Wy2-0k-wDI"/>
+                                </constraints>
                                 <state key="normal" title="Lions">
+                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="lionsButtonTapped:" destination="gtT-m2-EnT" eventType="touchUpInside" id="86O-9t-3oZ"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cCt-JD-41M">
-                                <rect key="frame" x="137" y="368" width="42" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cCt-JD-41M">
+                                <rect key="frame" x="16" y="100" width="42" height="30"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="F6V-77-gjO"/>
+                                    <constraint firstAttribute="width" constant="42" id="k9h-NK-E2t"/>
+                                </constraints>
                                 <state key="normal" title="Tigers">
+                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -109,6 +158,12 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="cP9-4U-ipB" firstAttribute="leading" secondItem="W0T-Lp-M5C" secondAttribute="leadingMargin" id="FM3-Xz-nds"/>
+                            <constraint firstItem="cP9-4U-ipB" firstAttribute="top" secondItem="vji-W5-COG" secondAttribute="bottom" constant="60" id="LUP-bg-GEK"/>
+                            <constraint firstItem="cCt-JD-41M" firstAttribute="leading" secondItem="W0T-Lp-M5C" secondAttribute="leadingMargin" id="gfx-hk-B7e"/>
+                            <constraint firstItem="cCt-JD-41M" firstAttribute="top" secondItem="vji-W5-COG" secondAttribute="bottom" constant="100" id="hze-73-iqX"/>
+                        </constraints>
                     </view>
                     <toolbarItems/>
                 </viewController>

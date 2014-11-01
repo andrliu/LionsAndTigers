@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		49126A071A04507C00BF95E0 /* CustomCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 49126A061A04507C00BF95E0 /* CustomCollectionViewCell.m */; };
 		49AAA3D61A0328A500CE090D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 49AAA3D51A0328A500CE090D /* main.m */; };
 		49AAA3D91A0328A500CE090D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 49AAA3D81A0328A500CE090D /* AppDelegate.m */; };
 		49AAA3DF1A0328A500CE090D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49AAA3DD1A0328A500CE090D /* Main.storyboard */; };
@@ -29,6 +30,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		49126A051A04507C00BF95E0 /* CustomCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCollectionViewCell.h; sourceTree = "<group>"; };
+		49126A061A04507C00BF95E0 /* CustomCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCollectionViewCell.m; sourceTree = "<group>"; };
 		49AAA3D01A0328A500CE090D /* LionsAndTigers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LionsAndTigers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49AAA3D41A0328A500CE090D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		49AAA3D51A0328A500CE090D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -95,6 +98,8 @@
 				49AAA4061A03397100CE090D /* PhotosViewController.m */,
 				49AAA4081A03397E00CE090D /* MenuViewController.h */,
 				49AAA4091A03397E00CE090D /* MenuViewController.m */,
+				49126A051A04507C00BF95E0 /* CustomCollectionViewCell.h */,
+				49126A061A04507C00BF95E0 /* CustomCollectionViewCell.m */,
 				49AAA3DD1A0328A500CE090D /* Main.storyboard */,
 				49AAA3E01A0328A500CE090D /* Images.xcassets */,
 				49AAA3E21A0328A500CE090D /* LaunchScreen.xib */,
@@ -232,6 +237,7 @@
 				49AAA3D91A0328A500CE090D /* AppDelegate.m in Sources */,
 				49AAA4071A03397100CE090D /* PhotosViewController.m in Sources */,
 				49AAA3D61A0328A500CE090D /* main.m in Sources */,
+				49126A071A04507C00BF95E0 /* CustomCollectionViewCell.m in Sources */,
 				49AAA4041A03396500CE090D /* RootViewController.m in Sources */,
 				49AAA40A1A03397E00CE090D /* MenuViewController.m in Sources */,
 			);
