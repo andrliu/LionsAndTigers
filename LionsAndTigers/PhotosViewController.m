@@ -20,6 +20,10 @@
     [super viewDidLoad];
 }
 
+- (IBAction)MenuButtonOnPressed:(UIBarButtonItem *)sender
+{
+    [self.delegate topRevealButtonTapped];
+}
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
@@ -34,12 +38,5 @@
     cell.customImageView.image = self.currentPhotosArray[indexPath.row];
     return cell;
 }
-
-
-- (IBAction)MenuButtonOnPressed:(UIBarButtonItem *)sender
-{
-    [self.delegate topRevealButtonTapped];
-}
-
 
 @end

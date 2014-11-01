@@ -31,6 +31,7 @@
                             </containerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="GSE-9v-8yA" secondAttribute="trailing" constant="-16" id="2X8-Wg-WQh"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="vMA-68-IRr" secondAttribute="bottom" id="9gb-ZT-u14"/>
@@ -41,6 +42,9 @@
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="GSE-9v-8yA" secondAttribute="bottom" id="f5N-h4-znK"/>
                             <constraint firstItem="GSE-9v-8yA" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="uN8-6d-pHy"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="Vz3-hk-cRT" appends="YES" id="q83-Pm-ZmP"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="leftConstraintsOnPhotoView" destination="Ywa-16-7Gm" id="uFh-fg-OYo"/>
@@ -48,6 +52,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="Vz3-hk-cRT">
+                    <connections>
+                        <action selector="panHandler:" destination="vXZ-lx-hvc" id="eDl-0I-wZc"/>
+                    </connections>
+                </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="162" y="333"/>
         </scene>
@@ -97,6 +106,7 @@
                                 </connections>
                             </collectionView>
                         </subviews>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="oAt-9h-QcU" secondAttribute="trailing" constant="-16" id="ebx-4B-Ttr"/>
                             <constraint firstItem="6yK-Hu-EfL" firstAttribute="top" secondItem="oAt-9h-QcU" secondAttribute="bottom" id="lgm-CE-hpG"/>
@@ -133,7 +143,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DJc-BY-Xmd">
-                                <rect key="frame" x="16" y="90" width="45" height="30"/>
+                                <rect key="frame" x="16" y="140" width="45" height="30"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="45" id="5k0-1X-1Np"/>
@@ -148,7 +158,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5PM-6A-8Bm">
-                                <rect key="frame" x="16" y="50" width="45" height="30"/>
+                                <rect key="frame" x="16" y="100" width="45" height="30"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="45" id="DaH-Qp-9O6"/>
@@ -163,7 +173,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NXB-LQ-QqP">
-                                <rect key="frame" x="16" y="10" width="45" height="30"/>
+                                <rect key="frame" x="16" y="60" width="45" height="30"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="VjL-uN-wbW"/>
@@ -184,7 +194,7 @@
                             <constraint firstItem="DJc-BY-Xmd" firstAttribute="leading" secondItem="W0T-Lp-M5C" secondAttribute="leadingMargin" id="FZW-TB-zBK"/>
                             <constraint firstItem="5PM-6A-8Bm" firstAttribute="leading" secondItem="W0T-Lp-M5C" secondAttribute="leadingMargin" id="WXE-QR-LQp"/>
                             <constraint firstItem="5PM-6A-8Bm" firstAttribute="top" secondItem="NXB-LQ-QqP" secondAttribute="bottom" constant="10" id="gVx-wk-hOr"/>
-                            <constraint firstItem="5PM-6A-8Bm" firstAttribute="top" secondItem="vji-W5-COG" secondAttribute="bottom" constant="50" id="nDh-iP-ruJ"/>
+                            <constraint firstItem="5PM-6A-8Bm" firstAttribute="top" secondItem="vji-W5-COG" secondAttribute="bottom" constant="100" id="nDh-iP-ruJ"/>
                             <constraint firstItem="DJc-BY-Xmd" firstAttribute="top" secondItem="5PM-6A-8Bm" secondAttribute="bottom" constant="10" id="nEp-qj-QWe"/>
                         </constraints>
                     </view>
