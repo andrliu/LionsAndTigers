@@ -16,6 +16,8 @@
 
 @interface PhotosViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UICollectionView *photoCollectionView;
 @property (nonatomic, weak) id <TopDelegate> delegate;
+@property NSMutableArray *currentPhotosArray;
 
 @end

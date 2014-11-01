@@ -7,12 +7,9 @@
 //
 
 #import "PhotosViewController.h"
+#import "CustomCollectionViewCell.h"
 
-@interface PhotosViewController ()
-@property (weak, nonatomic) IBOutlet UIImageView *imageView;
-@property NSMutableArray *currentPhotosArray;
-@property NSMutableArray *lionsArray;
-@property NSMutableArray *tigersArray;
+@interface PhotosViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
 
 @end
 
@@ -22,6 +19,22 @@
 {
     [super viewDidLoad];
 }
+
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    return self.currentPhotosArray.count;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView
+                  cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    CustomCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"customCell"
+                                                                               forIndexPath:indexPath];
+    cell.customImageView.image = self.currentPhotosArray[indexPath.row];
+    return cell;
+}
+
 
 - (IBAction)MenuButtonOnPressed:(UIBarButtonItem *)sender
 {

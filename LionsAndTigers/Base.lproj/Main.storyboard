@@ -20,13 +20,13 @@
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GSE-9v-8yA" userLabel="Menu Container View">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <connections>
-                                    <segue destination="gtT-m2-EnT" kind="embed" id="TlA-ES-a5e"/>
+                                    <segue destination="gtT-m2-EnT" kind="embed" identifier="menuSegue" id="TlA-ES-a5e"/>
                                 </connections>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vMA-68-IRr" userLabel="Photo Container View">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <connections>
-                                    <segue destination="Ycx-7Q-Ss1" kind="embed" id="bOn-ZD-XNL"/>
+                                    <segue destination="Ycx-7Q-Ss1" kind="embed" identifier="photoSegue" id="bOn-ZD-XNL"/>
                                 </connections>
                             </containerView>
                         </subviews>
@@ -64,15 +64,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="oAt-9h-QcU">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="e5y-x9-0zh">
+                                <rect key="frame" x="0.0" y="45" width="320" height="523"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="20" minimumInteritemSpacing="20" id="e5y-x9-0zh">
                                     <size key="itemSize" width="150" height="150"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    <inset key="sectionInset" minX="20" minY="20" maxX="20" maxY="20"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="09a-So-86J" customClass="CustomCollectionViewCell">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="customCell" id="09a-So-86J" customClass="CustomCollectionViewCell">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -85,19 +85,22 @@
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
-                                        <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <outlet property="customImageView" destination="xut-dB-o2B" id="CcS-JU-4y0"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="3MP-L9-OUG" id="tog-Br-fF4"/>
+                                    <outlet property="delegate" destination="3MP-L9-OUG" id="Sdv-TC-JDZ"/>
+                                </connections>
                             </collectionView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="oAt-9h-QcU" firstAttribute="top" secondItem="L40-ul-4Af" secondAttribute="topMargin" id="Qxv-3U-K9r"/>
                             <constraint firstAttribute="trailingMargin" secondItem="oAt-9h-QcU" secondAttribute="trailing" constant="-16" id="ebx-4B-Ttr"/>
                             <constraint firstItem="6yK-Hu-EfL" firstAttribute="top" secondItem="oAt-9h-QcU" secondAttribute="bottom" id="lgm-CE-hpG"/>
+                            <constraint firstItem="oAt-9h-QcU" firstAttribute="top" secondItem="L40-ul-4Af" secondAttribute="topMargin" constant="45" id="mBr-Mj-9te"/>
                             <constraint firstItem="oAt-9h-QcU" firstAttribute="leading" secondItem="L40-ul-4Af" secondAttribute="leadingMargin" constant="-16" id="nyO-Dk-u4l"/>
                         </constraints>
                     </view>
@@ -109,6 +112,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="photoCollectionView" destination="oAt-9h-QcU" id="TQd-xK-x1Z"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="br7-9s-pb5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -126,43 +132,60 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cP9-4U-ipB">
-                                <rect key="frame" x="16" y="60" width="40" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DJc-BY-Xmd">
+                                <rect key="frame" x="16" y="90" width="45" height="30"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="GO1-7B-bjV"/>
-                                    <constraint firstAttribute="width" constant="40" id="Wy2-0k-wDI"/>
-                                </constraints>
-                                <state key="normal" title="Lions">
-                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="lionsButtonTapped:" destination="gtT-m2-EnT" eventType="touchUpInside" id="86O-9t-3oZ"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cCt-JD-41M">
-                                <rect key="frame" x="16" y="100" width="42" height="30"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="F6V-77-gjO"/>
-                                    <constraint firstAttribute="width" constant="42" id="k9h-NK-E2t"/>
+                                    <constraint firstAttribute="width" constant="45" id="5k0-1X-1Np"/>
+                                    <constraint firstAttribute="height" constant="30" id="e9a-y5-efc"/>
                                 </constraints>
                                 <state key="normal" title="Tigers">
-                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="tigersButtonTapped:" destination="gtT-m2-EnT" eventType="touchUpInside" id="DUJ-dI-NEc"/>
+                                    <action selector="tigersButtonTapped:" destination="gtT-m2-EnT" eventType="touchUpInside" id="RcH-i5-Rxq"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5PM-6A-8Bm">
+                                <rect key="frame" x="16" y="50" width="45" height="30"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="45" id="DaH-Qp-9O6"/>
+                                    <constraint firstAttribute="height" constant="30" id="jYr-ze-UZ3"/>
+                                </constraints>
+                                <state key="normal" title="Lions">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="lionsButtonTapped:" destination="gtT-m2-EnT" eventType="touchUpInside" id="6ht-Wj-MC3"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NXB-LQ-QqP">
+                                <rect key="frame" x="16" y="10" width="45" height="30"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="VjL-uN-wbW"/>
+                                    <constraint firstAttribute="width" constant="45" id="pWA-lV-LHw"/>
+                                </constraints>
+                                <state key="normal" title="All">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="allButtonTapped:" destination="gtT-m2-EnT" eventType="touchUpInside" id="O4S-3E-xYO"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="cP9-4U-ipB" firstAttribute="leading" secondItem="W0T-Lp-M5C" secondAttribute="leadingMargin" id="FM3-Xz-nds"/>
-                            <constraint firstItem="cP9-4U-ipB" firstAttribute="top" secondItem="vji-W5-COG" secondAttribute="bottom" constant="60" id="LUP-bg-GEK"/>
-                            <constraint firstItem="cCt-JD-41M" firstAttribute="leading" secondItem="W0T-Lp-M5C" secondAttribute="leadingMargin" id="gfx-hk-B7e"/>
-                            <constraint firstItem="cCt-JD-41M" firstAttribute="top" secondItem="vji-W5-COG" secondAttribute="bottom" constant="100" id="hze-73-iqX"/>
+                            <constraint firstItem="NXB-LQ-QqP" firstAttribute="leading" secondItem="W0T-Lp-M5C" secondAttribute="leadingMargin" id="9xf-rG-LdR"/>
+                            <constraint firstItem="DJc-BY-Xmd" firstAttribute="leading" secondItem="W0T-Lp-M5C" secondAttribute="leadingMargin" id="FZW-TB-zBK"/>
+                            <constraint firstItem="5PM-6A-8Bm" firstAttribute="leading" secondItem="W0T-Lp-M5C" secondAttribute="leadingMargin" id="WXE-QR-LQp"/>
+                            <constraint firstItem="5PM-6A-8Bm" firstAttribute="top" secondItem="NXB-LQ-QqP" secondAttribute="bottom" constant="10" id="gVx-wk-hOr"/>
+                            <constraint firstItem="5PM-6A-8Bm" firstAttribute="top" secondItem="vji-W5-COG" secondAttribute="bottom" constant="50" id="nDh-iP-ruJ"/>
+                            <constraint firstItem="DJc-BY-Xmd" firstAttribute="top" secondItem="5PM-6A-8Bm" secondAttribute="bottom" constant="10" id="nEp-qj-QWe"/>
                         </constraints>
                     </view>
                     <toolbarItems/>

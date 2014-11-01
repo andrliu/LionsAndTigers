@@ -10,6 +10,12 @@
 
 @protocol HUDDelegate  <NSObject>
 
+- (void)allButtonTapped;
+
+- (void)lionsButtonTapped;
+
+- (void)tigersButtonTapped;
+
 @end
 
 @interface MenuViewController : UIViewController

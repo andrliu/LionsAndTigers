@@ -18,13 +18,19 @@
 {
     [super viewDidLoad];
 }
+- (IBAction)allButtonTapped:(UIButton *)sender
+{
+    [self.delegate allButtonTapped];
+}
 
 - (IBAction)lionsButtonTapped:(UIButton *)sender
 {
+    [self.delegate lionsButtonTapped];
 }
 
 - (IBAction)tigersButtonTapped:(UIButton *)sender
 {
+    [self.delegate tigersButtonTapped];
 }
 
 @end
